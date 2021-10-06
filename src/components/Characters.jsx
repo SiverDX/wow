@@ -12,7 +12,7 @@ export default class Characters extends React.Component {
             headers: {
                 'namespace': 'profile-eu',
                 'locale': 'de_de',
-                'access_token': ''
+                'access_token': process.env.CLIENT_SECRET
             }
         }).then(response => {console.log(response); return response.json();}).then(data => {
             console.log(data);
