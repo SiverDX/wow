@@ -1,25 +1,40 @@
 import React from "react";
-import Mounts from "./Mounts";
 
 export default class Characters extends React.Component {
     constructor(props) {
         super(props);
 
         let apiURL = 'https://de.api.blizzard.com/profile/wow/character/Thrall/Nadare/collections';
+        let tokenURL = 'https://eu.battle.net/oauth/authorize';
+
+        fetch(tokenURL, {
+            method: 'GET',
+            mode: 'no-cors',
+            headers: {
+                'region': 'eu',
+                'reponse_type': 'code',
+                'client_id': process.env.REACT_APP_CLIENT_ID,
+                'redirect_uri': 'http://localost:3000',
+                'scope': 'wow',
+                'state': 'test'
+            }
+        }).then(response => response.json()).then(data => {
+            console.log(data)
+        }).catch(reason => console.error(reason));
 
         fetch(apiURL, {
             method: 'GET',
+            mode: 'no-cors',
             headers: {
                 'namespace': 'profile-eu',
                 'locale': 'de_de',
-                'access_token': process.env.CLIENT_SECRET
+                'access_token': process.env.REACT_APP_CLIENT_SECRET
             }
         }).then(response => {console.log(response); return response.json();}).then(data => {
             console.log(data);
             this.state = {mounts: {apiURL: data.mounts.href}};
         }).catch(reason => console.error(reason));
     }
-
 
     render() {
         return (
