@@ -1,11 +1,11 @@
 import './App.css';
-import Characters from "./components/Characters.jsx";
+import Collections from "./components/Collections.jsx";
 import React from "react";
 
 function App() {
     return (
         <div className="App">
-            <Characters name="me"/>
+            <Collections namespace='profile-eu' locale='de_de'/>
         </div>
     );
 }
