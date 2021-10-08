@@ -30,8 +30,6 @@ test('test collections', async () => {
     fetchData.mockResolvedValueOnce(createMountsObject());
     fetchData.mockResolvedValueOnce(createPetsObject());
 
-    // global.fetchData = () => Promise.resolve();
-
     fireEvent.click(requestDataButton);
 
     /* wait until 'requestData' is resolved */

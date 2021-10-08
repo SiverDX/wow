@@ -1,8 +1,6 @@
 async function fetchData(realm, character, type, namespace, locale) {
     let token = await requestToken();
 
-    console.log('type', type);
-
     let baseURL = 'https://eu.api.blizzard.com';
     let apiURL = baseURL + `/profile/wow/character/${realm}/${character}/collections/${type}?namespace=${namespace}&locale=${locale}`;
 
@@ -52,7 +50,7 @@ async function requestData(requestParameters) {
     let data = await response.json();
 
     if (data.code) {
-        console.error(type, data);
+        console.error(`request to API (${requestParameters.apiURL}) failed: ${data}`);
 
         return null;
     }
