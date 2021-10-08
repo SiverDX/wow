@@ -34,7 +34,7 @@ export default class Collections extends React.Component {
         let character = document.getElementById('characterInput').value.toLowerCase();
 
         if (!(realm && character)) {
-            console.warn(`realm (${realm}) and / or character (${realm}) not set`);
+            console.warn(`realm (${realm}) and / or character (${character}) not set`);
 
             return;
         }

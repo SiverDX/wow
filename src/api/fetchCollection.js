@@ -33,7 +33,7 @@ async function requestData(requestParameters) {
     let data = await response.json();
 
     if (data.code) {
-        console.error(`request to API (${requestParameters.apiURL}) failed: ${data}`);
+        console.error(`request to API (${requestParameters.apiURL}) failed:`, data);
 
         return null;
     }

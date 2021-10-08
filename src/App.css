@@ -1,9 +1,14 @@
-.image-container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
+html {
+  background: #24292f;
+  color: #c5c5c7;
 }
 
 h1 {
   text-align: center;
+}
+
+.image-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }
