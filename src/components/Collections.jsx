@@ -1,7 +1,7 @@
 import React from "react";
 import Mounts from "./Mounts";
 import Pets from "./Pets";
-import {fetchData} from "../api/collections/fetchData";
+import {fetchCollection} from "../api/fetchCollection";
 
 export default class Collections extends React.Component {
     constructor(props) {
@@ -39,8 +39,8 @@ export default class Collections extends React.Component {
             return;
         }
 
-        let mounts = await fetchData(realm, character, 'mounts', this.props.namespace, this.props.locale);
-        let pets = await fetchData(realm, character, 'pets', this.props.namespace, this.props.locale);
+        let mounts = await fetchCollection(realm, character, 'mounts', this.props.namespace, this.props.locale);
+        let pets = await fetchCollection(realm, character, 'pets', this.props.namespace, this.props.locale);
 
         this.setState({mounts: mounts, pets: pets});
     }
